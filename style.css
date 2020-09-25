@@ -1,0 +1,55 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.ham {
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    align-items: center;
+}
+
+.ham__icon {
+    display: block;
+    position: relative;
+    transition: all 500ms cubic-bezier(0, 1.88, 1, 1.22);
+}
+
+.ham__icon,
+.ham__icon::before,
+.ham__icon::after {
+    width: 35px;
+    height: 1px;
+    border-radius: 1px;
+    background: #000;
+}
+
+.ham__icon::before,
+.ham__icon::after {
+    content: "";
+    position: absolute;
+    transition: all 500ms cubic-bezier(0, 1.88, 1, 1.22);
+}
+
+.ham__icon::before {
+    transform: translateY(-5px)
+}
+
+.ham__icon::after {
+    transform: translateY(5px);
+}
+
+.ham.active .ham__icon{
+    transform: translateX(-5px);
+    box-shadow: none;
+    background: transparent;
+}
+
+.ham.active .ham__icon::before {
+    transform: rotate(45deg) translate(10px, -10px);
+}
+
+.ham.active .ham__icon::after {
+    transform: rotate(-45deg) translate(10px, 10px);
+}
